@@ -16,31 +16,66 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
+    :root {
+      --bg1: #0a66c2;
+      --bg2: #7f53ff;
+      --card-bg: rgba(255,255,255,0.15);
+      --text: #ffffff;
+    }
+
+    body.light {
+      --bg1: #e0e7ff;
+      --bg2: #f8fafc;
+      --card-bg: rgba(255,255,255,0.7);
+      --text: #111;
+    }
+
     body {
       margin: 0;
-      padding: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0a66c2, #7f53ff);
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      color: #fff;
+      background: linear-gradient(120deg, var(--bg1), var(--bg2));
+      background-size: 400% 400%;
+      animation: gradientMove 10s ease infinite;
+      color: var(--text);
+      transition: all 0.4s ease;
+    }
+
+    @keyframes gradientMove {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border-radius: 20px;
-      padding: 35px;
-      text-align: center;
+      position: relative;
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      border-radius: 22px;
+      padding: 38px;
       width: 90%;
       max-width: 420px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      text-align: center;
+      box-shadow: 0 25px 45px rgba(0,0,0,0.25);
     }
 
-    .card img {
+    /* Glow behind image */
+    .glow {
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, #7f53ff, transparent 60%);
+      filter: blur(50px);
+      z-index: -1;
+    }
+
+    img {
       width: 140px;
       height: 140px;
       border-radius: 50%;
@@ -56,7 +91,7 @@
 
     p {
       opacity: 0.9;
-      margin-bottom: 25px;
+      margin-bottom: 28px;
     }
 
     .links {
@@ -73,29 +108,39 @@
       padding: 14px;
       border-radius: 14px;
       text-decoration: none;
-      color: #fff;
+      color: var(--text);
       font-weight: bold;
       background: rgba(255,255,255,0.18);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(255,255,255,0.25);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.3);
     }
 
-    /* Resume button longer */
     .btn.resume {
       padding: 16px;
       font-size: 16px;
     }
 
-    /* Icon size */
     .btn i {
       font-size: 18px;
+    }
+
+    /* Toggle button */
+    .toggle {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: var(--text);
+      padding: 8px 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 16px;
     }
   </style>
 </head>
@@ -103,15 +148,18 @@
 <body>
   <div class="card">
 
-    <!-- Profile -->
+    <button class="toggle" onclick="toggleTheme()">
+      <i class="fa-solid fa-moon"></i>
+    </button>
+
+    <div class="glow"></div>
+
     <img src="profile.jpg" alt="Jithin George">
 
     <h1>Hey, I'm Jithin 👋</h1>
     <p>AI / ML | Python | Robotics</p>
 
-    <!-- Buttons -->
     <div class="links">
-
       <a href="resume.pdf" class="btn resume" target="_blank">
         <i class="fa-solid fa-download"></i>
         Download Resume
@@ -126,9 +174,14 @@
         <i class="fa-brands fa-linkedin"></i>
         LinkedIn
       </a>
-
     </div>
 
   </div>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("light");
+    }
+  </script>
 </body>
 </html>
