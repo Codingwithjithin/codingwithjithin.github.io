@@ -6,84 +6,128 @@
 
   <!-- LinkedIn Preview -->
   <meta property="og:title" content="Hey, I'm Jithin George">
-  <meta property="og:description" content="AI / ML Engineer">
+  <meta property="og:description" content="AI / ML | Python | Robotics">
   <meta property="og:image" content="https://codingwithjithin.github.io/profile.jpg">
   <meta property="og:url" content="https://codingwithjithin.github.io">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Icons -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      background: #f5f7fa;
+      background: linear-gradient(135deg, #0a66c2, #7f53ff);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-radius: 20px;
+      padding: 35px;
       text-align: center;
+      width: 90%;
+      max-width: 420px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
     }
 
-    .container {
-      margin-top: 60px;
-    }
-
-    img {
+    .card img {
       width: 140px;
       height: 140px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid #0a66c2;
+      border: 3px solid rgba(255,255,255,0.7);
+      margin-bottom: 15px;
     }
 
     h1 {
-      margin: 15px 0 5px;
+      margin: 10px 0 5px;
       font-size: 28px;
     }
 
     p {
-      color: #555;
+      opacity: 0.9;
       margin-bottom: 25px;
     }
 
-    a {
-      display: inline-block;
-      margin: 8px;
-      padding: 12px 22px;
-      background: #0a66c2;
-      color: white;
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px;
+      border-radius: 14px;
       text-decoration: none;
-      border-radius: 8px;
+      color: #fff;
       font-weight: bold;
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.25);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    a.github {
-      background: #24292e;
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.25);
     }
 
-    a.resume {
-      background: #0a66c2;
+    /* Resume button longer */
+    .btn.resume {
+      padding: 16px;
+      font-size: 16px;
+    }
+
+    /* Icon size */
+    .btn i {
+      font-size: 18px;
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
+  <div class="card">
 
-    <!-- PROFILE PHOTO -->
+    <!-- Profile -->
     <img src="profile.jpg" alt="Jithin George">
 
     <h1>Hey, I'm Jithin 👋</h1>
-    <p>AI / ML Engineer</p>
+    <p>AI / ML | Python | Robotics</p>
 
-    <!-- LINKS -->
-    <a href="resume.pdf" class="resume" target="_blank">
-      Resume
-    </a>
+    <!-- Buttons -->
+    <div class="links">
 
-    <a href="https://github.com/Codingwithjithin" class="github" target="_blank">
-      GitHub
-    </a>
+      <a href="resume.pdf" class="btn resume" target="_blank">
+        <i class="fa-solid fa-download"></i>
+        Download Resume
+      </a>
 
-    <a href="https://www.linkedin.com/in/jithingeorge/" target="_blank">
-      LinkedIn
-    </a>
+      <a href="https://github.com/Codingwithjithin" class="btn" target="_blank">
+        <i class="fa-brands fa-github"></i>
+        GitHub
+      </a>
+
+      <a href="https://www.linkedin.com/in/jithingeorge/" class="btn" target="_blank">
+        <i class="fa-brands fa-linkedin"></i>
+        LinkedIn
+      </a>
+
+    </div>
 
   </div>
 </body>
