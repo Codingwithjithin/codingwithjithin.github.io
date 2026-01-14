@@ -8,164 +8,152 @@
 <meta name="color-scheme" content="dark">
 
 <style>
-  /* prevent white flash */
-  html, body { background:#0e0e10; margin:0; }
+html, body {
+  margin: 0;
+  background: #0e0e10;
+}
 
-  * {
-    box-sizing:border-box;
-    font-family:-apple-system,BlinkMacSystemFont,"Inter",sans-serif;
-  }
+/* ===== BASE ===== */
+* {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+}
 
-  body {
-    color:#f5f5f7;
-    overflow-x:hidden;
-  }
+body {
+  color: #f5f5f7;
+  overflow-x: hidden;
+}
 
-  /* ================= VIDEO BACKGROUND ================= */
-  video.bg-video {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -3;
-  }
+/* ===== SAFE ANIMATED BACKGROUND (ALWAYS WORKS) ===== */
+.fallback-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  background:
+    radial-gradient(600px at 20% 20%, #5b5cff22, transparent 60%),
+    radial-gradient(500px at 80% 70%, #7c6cff22, transparent 60%),
+    #0e0e10;
+  animation: drift 20s ease-in-out infinite alternate;
+}
 
-  /* blur + dark overlay (SAFE) */
-  .video-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-    background: rgba(14,14,16,0.55);
-    backdrop-filter: blur(14px);
-  }
+@keyframes drift {
+  0% { background-position: 0% 0%, 100% 100%; }
+  100% { background-position: 10% 10%, 90% 90%; }
+}
 
-  /* ================= CONTENT ================= */
-  .page {
-    max-width: 420px;
-    margin: auto;
-    padding: 64px 22px;
-    position: relative;
-    z-index: 1;
-  }
+/* ===== VIDEO (OPTIONAL, SAFE) ===== */
+video.bg-video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  opacity: 0.25;
+  pointer-events: none;
+}
 
-  .hero {
-    text-align:center;
-    margin-bottom:40px;
-  }
+/* ===== CONTENT ===== */
+.page {
+  max-width: 420px;
+  margin: auto;
+  padding: 64px 22px;
+}
 
-  .hero img {
-    width:120px;
-    height:120px;
-    border-radius:50%;
-    object-fit:cover;
-    border:1px solid rgba(255,255,255,0.15);
-    margin-bottom:18px;
-  }
+.hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
 
-  .hero h1 {
-    font-size:30px;
-    font-weight:600;
-    letter-spacing:-0.02em;
-  }
+.hero img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+  margin-bottom: 18px;
+}
 
-  .hero p {
-    margin-top:8px;
-    font-size:15px;
-    color:#a1a1a6;
-  }
+.hero h1 {
+  font-size: 30px;
+  font-weight: 600;
+}
 
-  .card {
-    background:rgba(30,30,34,0.65);
-    backdrop-filter:blur(18px);
-    border:1px solid rgba(255,255,255,0.12);
-    border-radius:22px;
-    padding:26px;
-  }
+.hero p {
+  font-size: 15px;
+  color: #a1a1a6;
+}
 
-  .links {
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-  }
+.card {
+  background: rgba(30,30,34,0.65);
+  backdrop-filter: blur(18px);
+  border-radius: 22px;
+  padding: 26px;
+}
 
-  .btn {
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    padding:15px;
-    border-radius:14px;
-    background:rgba(255,255,255,0.08);
-    color:#f5f5f7;
-    text-decoration:none;
-    border:1px solid rgba(255,255,255,0.12);
-    transition:transform .25s ease, box-shadow .25s ease;
-    font-weight:500;
-  }
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
 
-  .btn:hover {
-    transform:translateY(-3px);
-    box-shadow:0 12px 30px rgba(0,0,0,0.4);
-  }
+.btn {
+  padding: 15px;
+  border-radius: 14px;
+  text-align: center;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #f5f5f7;
+  text-decoration: none;
+  transition: transform .25s ease;
+}
 
-  .footer {
-    margin-top:28px;
-    text-align:center;
-    font-size:12px;
-    color:#a1a1a6;
-  }
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.footer {
+  margin-top: 28px;
+  text-align: center;
+  font-size: 12px;
+  color: #a1a1a6;
+}
 </style>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet"
- href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 </head>
 
 <body>
 
-<!-- VIDEO MUST BE FIRST -->
-<video class="bg-video" autoplay muted loop playsinline preload="auto">
+<!-- ALWAYS WORKING BACKGROUND -->
+<div class="fallback-bg"></div>
+
+<!-- VIDEO (ONLY IF BROWSER ALLOWS IT) -->
+<video class="bg-video" autoplay muted loop playsinline preload="none">
   <source src="bg.mp4" type="video/mp4">
 </video>
-
-<div class="video-overlay"></div>
 
 <div class="page">
 
   <div class="hero">
     <img src="profile.jpg" alt="Jithin George">
     <h1>Jithin George</h1>
-    <p>AI / ML Engineer · Python · Datastructures</p>
+    <p>AI / ML · Python · Software Engineering</p>
   </div>
 
   <div class="card">
     <div class="links">
-
-      <a href="resume.pdf" class="btn" target="_blank">
-        <i class="fa-solid fa-download"></i> Download Resume
-      </a>
-
-      <a href="https://github.com/Codingwithjithin" class="btn" target="_blank">
-        <i class="fa-brands fa-github"></i> GitHub
-      </a>
-
-      <a href="https://www.linkedin.com/in/jithingeorge/" class="btn" target="_blank">
-        <i class="fa-brands fa-linkedin"></i> LinkedIn
-      </a>
-
+      <a class="btn" href="resume.pdf" target="_blank">Download Resume</a>
+      <a class="btn" href="https://github.com/Codingwithjithin" target="_blank">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/jithingeorge/" target="_blank">LinkedIn</a>
     </div>
   </div>
 
   <div class="footer">
-    Designed by Jithin · © <span id="year"></span> 
+    Designed by Jithin · © <span id="y"></span> Jithin
   </div>
 
 </div>
 
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("y").textContent = new Date().getFullYear();
 </script>
 
 </body>
