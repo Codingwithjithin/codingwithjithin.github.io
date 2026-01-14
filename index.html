@@ -7,25 +7,21 @@
 
 <!-- Prevent white flash -->
 <meta name="color-scheme" content="dark">
-
-<!-- Hard lock dark background before CSS loads -->
 <style>
-  html, body {
-    background: #0e0e10;
-  }
+  html, body { background:#0e0e10; }
 </style>
 
-<!-- Apple-like font -->
+<!-- Font -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+<link rel="stylesheet"
+ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 /* ================= THEME ================= */
 :root {
-  --bg: radial-gradient(
-    circle at top,
-    #1c1c1e 0%,
-    #0e0e10 60%
-  );
+  --bg: radial-gradient(circle at top, #1c1c1e 0%, #0e0e10 60%);
   --card: rgba(30,30,34,0.65);
   --text: #f5f5f7;
   --subtext: #a1a1a6;
@@ -34,185 +30,207 @@
 
 /* ================= BASE ================= */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Inter",-apple-system,BlinkMacSystemFont,sans-serif;
 }
 
 body {
-  background: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-  overflow-x: hidden;
-  animation: fadeIn 0.6s ease-out;
+  min-height:100vh;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  animation:fadeIn .6s ease-out;
 }
 
-/* Soft fade-in (Option C) */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from{opacity:0}
+  to{opacity:1}
+}
+
+/* ================= ABSTRACT BLOBS ================= */
+.bg {
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  overflow:hidden;
+}
+
+.blob {
+  position:absolute;
+  width:420px;
+  height:420px;
+  background:radial-gradient(circle, #6b6cff, transparent 60%);
+  filter:blur(120px);
+  opacity:.22;
+  animation:float 22s ease-in-out infinite;
+}
+
+.blob.one { top:10%; left:8%; }
+.blob.two { bottom:12%; right:10%; animation-delay:-10s; }
+
+@keyframes float {
+  0% { transform:translate(0,0); }
+  50% { transform:translate(60px,-40px); }
+  100% { transform:translate(0,0); }
 }
 
 /* ================= PAGE ================= */
 .page {
-  max-width: 420px;
-  margin: auto;
-  padding: 60px 22px;
+  max-width:420px;
+  margin:auto;
+  padding:64px 22px;
 }
 
 /* ================= HERO ================= */
 .hero {
-  text-align: center;
-  margin-bottom: 42px;
+  text-align:center;
+  margin-bottom:42px;
 }
 
 .hero img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 18px;
-  border: 1px solid var(--border);
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  object-fit:cover;
+  border:1px solid var(--border);
+  margin-bottom:18px;
 }
 
 .hero h1 {
-  font-size: 30px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-size:30px;
+  font-weight:600;
+  letter-spacing:-.02em;
 }
 
 .hero p {
-  margin-top: 8px;
-  color: var(--subtext);
-  font-size: 15px;
+  margin-top:8px;
+  font-size:15px;
+  color:var(--subtext);
 }
 
 /* ================= CARD ================= */
 .card {
-  background: var(--card);
-  backdrop-filter: blur(22px);
-  border: 1px solid var(--border);
-  border-radius: 22px;
-  padding: 26px;
+  background:var(--card);
+  backdrop-filter:blur(22px);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:26px;
 }
 
 /* ================= BUTTONS ================= */
 .links {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
 }
 
 .btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px;
-  border-radius: 14px;
-  background: rgba(255,255,255,0.06);
-  color: var(--text);
-  font-weight: 500;
-  text-decoration: none;
-  border: 1px solid var(--border);
-  transition: transform .25s ease, box-shadow .25s ease;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:15px;
+  border-radius:14px;
+  background:rgba(255,255,255,.06);
+  color:var(--text);
+  font-weight:500;
+  text-decoration:none;
+  border:1px solid var(--border);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+
+.btn i {
+  font-size:18px;
 }
 
 .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px rgba(0,0,0,.45);
 }
 
 .btn.primary {
-  font-weight: 600;
+  font-weight:600;
 }
 
 /* ================= APPLE UNDERLINE ================= */
 .apple-link {
-  position: relative;
+  position:relative;
 }
 
 .apple-link::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -6px;
-  width: 0;
-  height: 2px;
-  background: var(--text);
-  transition: width .3s ease, left .3s ease;
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-6px;
+  width:0;
+  height:2px;
+  background:var(--text);
+  transition:width .3s ease, left .3s ease;
 }
 
 .apple-link:hover::after {
-  width: 100%;
-  left: 0;
-}
-
-/* ================= REVEAL ================= */
-.reveal {
-  opacity: 0;
-  transform: translateY(22px);
-  transition: opacity .9s ease, transform .9s ease;
-}
-
-.reveal.show {
-  opacity: 1;
-  transform: translateY(0);
+  width:100%;
+  left:0;
 }
 
 /* ================= FOOTER ================= */
 .footer {
-  margin-top: 28px;
-  text-align: center;
-  font-size: 12px;
-  color: var(--subtext);
-  opacity: 0;
-  animation: footerFade 1.8s ease forwards;
-  animation-delay: 1.2s;
+  margin-top:28px;
+  text-align:center;
+  font-size:12px;
+  color:var(--subtext);
+  opacity:0;
+  animation:footerFade 1.8s ease forwards;
+  animation-delay:1.2s;
 }
 
 @keyframes footerFade {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity:0; transform:translateY(8px); }
+  to { opacity:1; transform:translateY(0); }
 }
 </style>
 </head>
 
 <body>
 
+<!-- Background blobs -->
+<div class="bg">
+  <div class="blob one"></div>
+  <div class="blob two"></div>
+</div>
+
 <div class="page">
 
   <!-- HERO -->
-  <div class="hero reveal">
+  <div class="hero">
     <img src="profile.jpg" alt="Jithin George">
     <h1>Jithin George</h1>
     <p>AI / ML · Python · Software Engineering</p>
   </div>
 
   <!-- CARD -->
-  <div class="card reveal">
+  <div class="card">
     <div class="links">
 
       <a href="resume.pdf" class="btn primary apple-link" target="_blank">
+        <i class="fa-solid fa-download"></i>
         Download Resume
       </a>
 
       <a href="https://github.com/Codingwithjithin"
          class="btn apple-link"
          target="_blank">
-         GitHub
+        <i class="fa-brands fa-github"></i>
+        GitHub
       </a>
 
       <a href="https://www.linkedin.com/in/jithingeorge/"
          class="btn apple-link"
          target="_blank">
-         LinkedIn
+        <i class="fa-brands fa-linkedin"></i>
+        LinkedIn
       </a>
 
     </div>
@@ -220,25 +238,12 @@ body {
 
   <!-- FOOTER -->
   <div class="footer">
-    Designed by Jithin George · © <span id="year"></span> 
+    Designed by Jithin · © <span id="year"></span> Jithin
   </div>
 
 </div>
 
 <script>
-/* Reveal on scroll */
-const reveals = document.querySelectorAll(".reveal");
-const revealOnScroll = () => {
-  reveals.forEach(el => {
-    if (el.getBoundingClientRect().top < window.innerHeight - 80) {
-      el.classList.add("show");
-    }
-  });
-};
-window.addEventListener("scroll", revealOnScroll);
-revealOnScroll();
-
-/* Auto year */
 document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
