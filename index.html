@@ -5,21 +5,27 @@
 <title>Jithin George</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Prevent white flash -->
+<meta name="color-scheme" content="dark">
+
+<!-- Hard lock dark background before CSS loads -->
+<style>
+  html, body {
+    background: #0e0e10;
+  }
+</style>
+
 <!-- Apple-like font -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-/* ================= THEME VARIABLES ================= */
+/* ================= THEME ================= */
 :root {
-  --bg: #f5f5f7;
-  --card: rgba(255,255,255,0.65);
-  --text: #1d1d1f;
-  --subtext: #6e6e73;
-  --border: rgba(0,0,0,0.08);
-}
-
-body.dark {
-  --bg: #0e0e10;
+  --bg: radial-gradient(
+    circle at top,
+    #1c1c1e 0%,
+    #0e0e10 60%
+  );
   --card: rgba(30,30,34,0.65);
   --text: #f5f5f7;
   --subtext: #a1a1a6;
@@ -38,7 +44,14 @@ body {
   background: var(--bg);
   color: var(--text);
   min-height: 100vh;
-  transition: background .4s ease, color .4s ease;
+  overflow-x: hidden;
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Soft fade-in (Option C) */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* ================= PAGE ================= */
@@ -60,6 +73,7 @@ body {
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 18px;
+  border: 1px solid var(--border);
 }
 
 .hero h1 {
@@ -96,7 +110,7 @@ body {
   justify-content: center;
   padding: 15px;
   border-radius: 14px;
-  background: #ffffff;
+  background: rgba(255,255,255,0.06);
   color: var(--text);
   font-weight: 500;
   text-decoration: none;
@@ -104,13 +118,9 @@ body {
   transition: transform .25s ease, box-shadow .25s ease;
 }
 
-body.dark .btn {
-  background: rgba(255,255,255,0.06);
-}
-
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
 .btn.primary {
@@ -171,40 +181,17 @@ body.dark .btn {
     transform: translateY(0);
   }
 }
-
-/* ================= DARK MODE TOGGLE ================= */
-.toggle {
-  position: fixed;
-  top: 18px;
-  right: 18px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  backdrop-filter: blur(20px);
-  color: var(--text);
-  border-radius: 50%;
-  width: 42px;
-  height: 42px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: all .3s ease;
-}
-
-.toggle:hover {
-  transform: scale(1.05);
-}
 </style>
 </head>
 
 <body>
-
-<button class="toggle" onclick="toggleTheme()">◐</button>
 
 <div class="page">
 
   <!-- HERO -->
   <div class="hero reveal">
     <img src="profile.jpg" alt="Jithin George">
-    <h1>Hey, I'm Jithin George</h1>
+    <h1>Jithin George</h1>
     <p>AI / ML · Python · Software Engineering</p>
   </div>
 
@@ -233,7 +220,7 @@ body.dark .btn {
 
   <!-- FOOTER -->
   <div class="footer">
-    Designed by Jithin · © <span id="year"></span> 
+    Designed by Jithin · © <span id="year"></span> Jithin
   </div>
 
 </div>
@@ -253,11 +240,6 @@ revealOnScroll();
 
 /* Auto year */
 document.getElementById("year").textContent = new Date().getFullYear();
-
-/* Dark mode toggle */
-function toggleTheme() {
-  document.body.classList.toggle("dark");
-}
 </script>
 
 </body>
