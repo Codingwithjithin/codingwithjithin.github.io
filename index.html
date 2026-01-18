@@ -60,7 +60,7 @@
       transform: translateY(-50%);
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 16px;
     }
 
     .btn {
@@ -75,7 +75,7 @@
       text-decoration: none;
       color: #fff;
       backdrop-filter: blur(10px);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      transition: transform .25s ease, box-shadow .25s ease;
     }
 
     .btn:hover {
@@ -87,51 +87,23 @@
     .linkedin { background: linear-gradient(135deg, #0077b5, #0a66c2); }
     .github { background: linear-gradient(135deg, #1c1c1c, #333); }
     .instagram { background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af); }
-
-    /* SOCIAL ICONS BOTTOM */
-    .social-bottom {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 80px;
-    }
-
-    .social-bottom a {
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.12);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 18px;
-      text-decoration: none;
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-
-    .social-bottom a:hover {
-      transform: translateY(-3px);
-      background: rgba(255,255,255,0.2);
-    }
+    .facebook { background: linear-gradient(135deg, #1877f2, #0f5bd6); }
+    .x { background: linear-gradient(135deg, #000000, #333333); }
 
     /* FOOTER */
     footer {
-      margin-top: 40px;
-      padding-bottom: 20px;
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
       text-align: center;
-      font-size: 13px;
-      color: #d0d0d0;
-    }
-
-    footer .links {
-      margin-top: 8px;
       font-size: 12px;
-      opacity: 0.85;
+      color: #d0d0d0;
+      line-height: 1.6;
     }
 
-    footer .links span {
+    footer span {
       margin: 0 6px;
+      cursor: pointer;
     }
 
     /* MOBILE */
@@ -159,6 +131,10 @@
       .header h1 {
         font-size: 40px;
       }
+
+      body {
+        background-attachment: scroll;
+      }
     }
   </style>
 </head>
@@ -179,33 +155,39 @@
     </div>
   </div>
 
-  <!-- RIGHT BUTTONS -->
+  <!-- RIGHT -->
   <div class="buttons">
-    <a href="resume.pdf" class="btn resume" target="_blank"><i class="fa-solid fa-download"></i>Download Resume</a>
-    <a href="https://www.linkedin.com/in/jithingeorge/" class="btn linkedin" target="_blank"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
-    <a href="https://github.com/Codingwithjithin" class="btn github" target="_blank"><i class="fa-brands fa-github"></i>GitHub</a>
-    <a href="https://www.instagram.com/conqueror._____?igsh=MTNmcnFmZHU1eHc2dQ==" class="btn instagram" target="_blank"><i class="fa-brands fa-instagram"></i>Instagram</a>
+
+    <a href="resume.pdf" class="btn resume" target="_blank">
+      <i class="fa-solid fa-download"></i> Download Resume
+    </a>
+
+    <a href="https://www.linkedin.com/in/jithingeorge/" class="btn linkedin" target="_blank">
+      <i class="fa-brands fa-linkedin"></i> LinkedIn
+    </a>
+
+    <a href="https://github.com/Codingwithjithin" class="btn github" target="_blank">
+      <i class="fa-brands fa-github"></i> GitHub
+    </a>
+
+    <a href="https://www.instagram.com/conqueror._____?igsh=MTNmcnFmZHU1eHc2dQ==" class="btn instagram" target="_blank">
+      <i class="fa-brands fa-instagram"></i> Instagram
+    </a>
+
+    <a href="#" class="btn facebook" target="_blank">
+      <i class="fa-brands fa-facebook-f"></i> Facebook
+    </a>
+
+    <a href="#" class="btn x" target="_blank">
+      <i class="fa-brands fa-x-twitter"></i> X
+    </a>
+
   </div>
 
-  <!-- SOCIAL ICONS -->
-  <div class="social-bottom">
-    <a href="#" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-    <a href="#" title="X"><i class="fa-brands fa-x-twitter"></i></a>
-  </div>
-
-  <!-- FOOTER -->
   <footer>
-    🇮🇳 India  
-    <br>
-    Copyright © 2026 JithinCodes Inc. All rights reserved.
-    <div class="links">
-      <i class="fa-brands fa-apple"></i>
-      <span>|</span> Privacy
-      <span>|</span> Policy
-      <span>|</span> Terms of Use
-      <span>|</span> Sales Policy
-      <span>|</span> Legal
-    </div>
+    in India<br>
+    Copyright © 2026 JithinCodes Inc. All rights reserved.<br>
+     <span>Privacy</span> | <span>Policy</span> | <span>Terms of Use</span> | <span>Sales Policy</span> | <span>Legal</span>
   </footer>
 
 </body>
