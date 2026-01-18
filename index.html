@@ -2,313 +2,263 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Jithin George | Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jithin George — AI / ML Engineer</title>
 
-<!-- Fonts & Icons -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ================= ROOT & THEME ================= */
+/* ================= ROOT THEME ================= */
 :root {
-  --glass-bg: rgba(255,255,255,0.55);
-  --glass-border: rgba(255,255,255,0.6);
-  --text-main: #222;
-  --text-sub: #555;
-  --page-bg: #fafafa;
-  --accent: #4f46e5;
+  --bg: #f4f6fb;
+  --text: #111;
+  --glass: rgba(255,255,255,0.55);
+  --border: rgba(255,255,255,0.6);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --glass-bg: rgba(30,30,30,0.65);
-    --glass-border: rgba(255,255,255,0.12);
-    --text-main: #f4f4f4;
-    --text-sub: #b5b5b5;
-    --page-bg: #0e0e0e;
+    --bg: #0b0d12;
+    --text: #f5f7fa;
+    --glass: rgba(20,22,30,0.55);
+    --border: rgba(255,255,255,0.15);
   }
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+[data-theme="dark"] {
+  --bg: #0b0d12;
+  --text: #f5f7fa;
+  --glass: rgba(20,22,30,0.55);
+  --border: rgba(255,255,255,0.15);
 }
 
+/* ================= GLOBAL ================= */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
 body {
-  background: var(--page-bg);
-  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(120deg, var(--bg), #cfd9ff);
+  color: var(--text);
+  scroll-snap-type: y proximity;
   overflow-x: hidden;
 }
 
-/* ================= CURSOR GLOW ================= */
-.cursor-glow {
-  position: fixed;
-  width: 320px;
-  height: 320px;
-  background: radial-gradient(circle, rgba(79,70,229,0.18), transparent 60%);
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 0;
-}
-
-/* ================= HERO ================= */
-.header {
-  max-width: 900px;
-  padding: 80px 20px;
-  margin-left: 60px;
-  position: relative;
-  z-index: 2;
-}
-
-.header h1 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 48px;
-  font-weight: 700;
-  margin-bottom: 14px;
-}
-
-.role {
-  display: inline-block;
-  padding: 8px 20px;
-  font-size: 14px;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-
-  background: var(--glass-bg);
-  backdrop-filter: blur(18px) saturate(180%);
-  border: 1px solid var(--glass-border);
-  border-radius: 999px;
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.6),
-    0 10px 24px rgba(0,0,0,.12);
-
-  margin-bottom: 34px;
-}
-
-.about {
-  font-size: 16px;
-  line-height: 1.85;
-  color: var(--text-sub);
-  max-width: 780px;
-}
-
-/* ================= SOCIAL BUTTONS ================= */
-.buttons {
-  position: absolute;
-  right: 70px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  z-index: 2;
-}
-
-.btn {
-  width: 260px;
-  padding: 16px 18px;
-  border-radius: 18px;
+section {
+  min-height: 100vh;
+  padding: 100px 10vw;
   display: flex;
   align-items: center;
-  gap: 12px;
-
-  font-size: 16px;
-  font-weight: 600;
-  color: #fff;
-  text-decoration: none;
-
-  backdrop-filter: blur(22px) saturate(180%);
-  border: 1px solid rgba(255,255,255,0.35);
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.35),
-    0 14px 36px rgba(0,0,0,0.45);
-
-  transition: all .3s ease;
-}
-
-.btn:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.6),
-    0 22px 48px rgba(0,0,0,0.55);
-}
-
-.resume    { background: linear-gradient(135deg, #1f3b6e, #274a8b); }
-.linkedin  { background: linear-gradient(135deg, #0077b5, #0a66c2); }
-.github    { background: linear-gradient(135deg, #111, #333); }
-.instagram { background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af); }
-
-/* ================= SECTIONS ================= */
-.section {
-  padding: 100px 20px;
-  max-width: 1100px;
-  margin: auto;
-  position: relative;
-  z-index: 2;
-}
-
-.section-title {
-  font-family: 'Poppins', sans-serif;
-  font-size: 32px;
-  margin-bottom: 40px;
+  scroll-snap-align: start;
 }
 
 /* ================= GLASS ================= */
 .glass {
-  background: var(--glass-bg);
+  background: var(--glass);
   backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid var(--glass-border);
-  border-radius: 20px;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.5),
-    0 14px 30px rgba(0,0,0,0.12);
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.6),
+              0 30px 60px rgba(0,0,0,.25);
+}
+
+/* ================= HERO ================= */
+.hero-card {
+  max-width: 900px;
+  padding: 60px;
+}
+
+h1 {
+  font-size: clamp(3rem, 6vw, 4rem);
+  font-weight: 700;
+}
+
+.role {
+  margin: 20px 0 30px;
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  background: var(--glass);
+}
+
+p {
+  font-size: 17px;
+  line-height: 1.7;
+  opacity: .9;
+}
+
+/* ================= BUTTONS ================= */
+.actions {
+  margin-top: 40px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 12px 20px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: var(--text);
+  background: var(--glass);
+  border: 1px solid var(--border);
+  transition: .3s;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
 }
 
 /* ================= PROJECTS ================= */
-.projects {
+.grid {
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 30px;
 }
 
-.project-card {
-  padding: 24px;
-  transition: all .3s ease;
+.card {
+  padding: 30px;
+  transition: .3s;
 }
 
-.project-card:hover {
-  transform: translateY(-6px);
-}
+.card:hover { transform: translateY(-6px); }
 
 /* ================= TIMELINE ================= */
-.timeline {
-  position: relative;
-  padding-left: 30px;
-  border-left: 2px solid rgba(255,255,255,0.25);
+.timeline { width: 100%; padding: 60px; }
+.timeline div { margin-bottom: 30px; }
+
+/* ================= SKILLS ================= */
+.skills {
+  width: 100%;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 
-.timeline-item {
-  margin-bottom: 40px;
-  padding: 20px;
-  position: relative;
+.skill {
+  flex: 1;
+  min-width: 200px;
 }
 
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -42px;
-  top: 28px;
-  width: 14px;
-  height: 14px;
-  background: var(--accent);
-  border-radius: 50%;
-  box-shadow: 0 0 0 6px rgba(79,70,229,0.25);
+.bar {
+  height: 8px;
+  border-radius: 6px;
+  background: rgba(255,255,255,.3);
+  margin-top: 8px;
 }
 
-/* ================= SCROLL REVEAL ================= */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all .8s ease;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
+.bar span {
+  display: block;
+  height: 100%;
+  border-radius: 6px;
+  background: linear-gradient(90deg,#7aa2ff,#9f7bff);
 }
 
 /* ================= FOOTER ================= */
 footer {
   text-align: center;
   font-size: 11px;
-  padding: 30px 0;
-  color: var(--text-sub);
-  opacity: .75;
+  opacity: .6;
+  padding: 20px;
 }
 
-/* ================= MOBILE ================= */
-@media (max-width: 900px) {
-  .header {
-    margin: 0;
-    padding: 50px 20px 0;
-  }
-  .buttons {
-    position: relative;
-    right: auto;
-    top: auto;
-    transform: none;
-    margin: 40px 20px;
-  }
-  .btn {
-    width: 100%;
-    justify-content: center;
-  }
+/* ================= CURSOR GLOW ================= */
+.cursor {
+  position: fixed;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(120,150,255,.3), transparent 60%);
+  pointer-events: none;
+  transform: translate(-50%,-50%);
+  z-index: 0;
+}
+
+/* ================= REVEALS ================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 1s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= TOGGLE ================= */
+.toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  background: var(--glass);
+  border: 1px solid var(--border);
 }
 </style>
 </head>
 
 <body>
 
-<div class="cursor-glow"></div>
+<div class="cursor"></div>
+<div class="toggle" onclick="toggleTheme()">🌙</div>
 
 <!-- HERO -->
-<div class="header reveal">
-  <h1>JITHIN GEORGE</h1>
-  <div class="role">AI / ML · PYTHON · DSA</div>
-  <div class="about">
-    B.Tech graduate specializing in Artificial Intelligence and Machine Learning with hands-on experience in Python, ML, DL, and Computer Vision.  
-    Passionate about building intelligent, real-world AI systems.
-  </div>
-</div>
+<section>
+  <div class="hero-card glass reveal">
+    <h1>Jithin George</h1>
+    <div class="role">AI / ML · Python · DSA</div>
+    <p>
+      AI & ML Engineer focused on building intelligent systems,
+      computer vision solutions, and scalable machine learning pipelines.
+    </p>
 
-<!-- BUTTONS -->
-<div class="buttons reveal">
-  <a href="resume.pdf" class="btn resume"><i class="fa-solid fa-download"></i> Resume</a>
-  <a href="https://www.linkedin.com/in/jithingeorge/" class="btn linkedin"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-  <a href="https://github.com/Codingwithjithin" class="btn github"><i class="fa-brands fa-github"></i> GitHub</a>
-  <a href="#" class="btn instagram"><i class="fa-brands fa-instagram"></i> Instagram</a>
-</div>
-
-<!-- PROJECTS -->
-<section class="section reveal">
-  <h2 class="section-title">Projects</h2>
-  <div class="projects">
-    <div class="project-card glass">
-      <h3>Indian Sign Language Translator</h3>
-      <p>Real-time computer vision system using deep learning.</p>
-    </div>
-    <div class="project-card glass">
-      <h3>AI Automation System</h3>
-      <p>Python-based workflow automation during internship.</p>
-    </div>
-    <div class="project-card glass">
-      <h3>ML Models</h3>
-      <p>Classification & prediction using ML/DL algorithms.</p>
+    <div class="actions">
+      <a class="btn" href="#">LinkedIn</a>
+      <a class="btn" href="#">GitHub</a>
+      <a class="btn" href="#">Resume</a>
     </div>
   </div>
 </section>
 
+<!-- PROJECTS -->
+<section>
+  <div class="grid reveal">
+    <div class="card glass">
+      <h3>Sign Language Translator</h3>
+      <p>Real-time computer vision system for Indian Sign Language.</p>
+    </div>
+    <div class="card glass">
+      <h3>ML Automation</h3>
+      <p>Python pipelines for real-world automation & ML workflows.</p>
+    </div>
+    <div class="card glass">
+      <h3>Deep Learning Models</h3>
+      <p>Optimized CNN & DL architectures.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section>
+  <div class="skills glass reveal" style="padding:60px">
+    <div class="skill">Python<div class="bar"><span style="width:90%"></span></div></div>
+    <div class="skill">Machine Learning<div class="bar"><span style="width:85%"></span></div></div>
+    <div class="skill">Deep Learning<div class="bar"><span style="width:80%"></span></div></div>
+    <div class="skill">Computer Vision<div class="bar"><span style="width:75%"></span></div></div>
+  </div>
+</section>
+
 <!-- TIMELINE -->
-<section class="section reveal">
-  <h2 class="section-title">Journey</h2>
-  <div class="timeline">
-    <div class="timeline-item glass">
-      <h4>2024 — B.Tech AI & ML</h4>
-      <p>Graduated with specialization in AI & ML.</p>
-    </div>
-    <div class="timeline-item glass">
-      <h4>2023 — SMEC Automation</h4>
-      <p>Python automation & applied ML internship.</p>
-    </div>
-    <div class="timeline-item glass">
-      <h4>2022 — CodeDesign Technologies</h4>
-      <p>Python development & AI-based solutions.</p>
-    </div>
+<section>
+  <div class="timeline glass reveal">
+    <div><b>B.Tech AI & ML</b><br>2020 – 2024</div>
+    <div><b>SMEC Automation</b><br>Python Intern</div>
+    <div><b>CodeDesign Technologies</b><br>ML Intern</div>
   </div>
 </section>
 
@@ -317,27 +267,28 @@ footer {
 </footer>
 
 <script>
-/* YEAR */
+/* Year */
 document.getElementById("year").textContent = new Date().getFullYear();
 
-/* CURSOR GLOW */
-const glow = document.querySelector('.cursor-glow');
-if (window.innerWidth > 768) {
-  document.addEventListener('mousemove', e => {
-    glow.style.left = e.clientX + 'px';
-    glow.style.top = e.clientY + 'px';
-  });
-}
+/* Cursor */
+const c = document.querySelector('.cursor');
+document.addEventListener('mousemove', e => {
+  c.style.left = e.clientX + 'px';
+  c.style.top = e.clientY + 'px';
+});
 
-/* SCROLL REVEAL */
+/* Reveal */
 const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('active');
-  });
-}, { threshold: 0.15 });
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => e.isIntersecting && e.target.classList.add('show'));
+});
+reveals.forEach(r => io.observe(r));
 
-reveals.forEach(r => observer.observe(r));
+/* Theme */
+function toggleTheme() {
+  document.body.dataset.theme =
+    document.body.dataset.theme === 'dark' ? '' : 'dark';
+}
 </script>
 
 </body>
