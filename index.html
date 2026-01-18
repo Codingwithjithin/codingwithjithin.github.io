@@ -19,7 +19,7 @@
     body {
       min-height: 100vh;
       background:
-        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)),
         url("bkfinal.png") center / cover no-repeat fixed;
       color: #fff;
     }
@@ -47,7 +47,7 @@
 
     .about {
       margin-top: 28px;
-      font-size: 15.5px;
+      font-size: 15px;
       line-height: 1.75;
       color: #e6e6e6;
     }
@@ -149,7 +149,7 @@
     <div class="about">
       I am a B.Tech graduate specializing in Artificial Intelligence and Machine Learning, with strong hands-on experience in Python, Machine Learning, Deep Learning, and Computer Vision.
       <br><br>
-      I have worked on real-world projects and internships involving AI-based solutions, including a computer vision system for real-time Indian Sign Language translation. Through internships at SMEC Automation and CodeDesign Technologies, I gained practical exposure to Python-based development, automation, and applied machine learning concepts.
+      I have worked on real-world projects involving AI-based solutions, including a computer vision system for real-time Indian Sign Language translation. Through internships at SMEC Automation and CodeDesign Technologies, I gained practical exposure to Python-based development, automation, and applied machine learning concepts.
       <br><br>
       I am passionate about building intelligent systems, continuously learning new technologies, and applying AI/ML to solve real-world problems. I am currently seeking entry-level opportunities in AI/ML, software development, or data-driven roles.
     </div>
@@ -184,11 +184,14 @@
 
   </div>
 
-  <footer>
-    in India<br>
-    Copyright © 2026 JithinCodes Inc. All rights reserved.<br>
-     <span>Privacy</span> | <span>Policy</span> | <span>Terms of Use</span> | <span>Sales Policy</span> | <span>Legal</span>
-  </footer>
+<footer class="footer-disclaimer">
+  © <span id="year"></span> JithinCodes Inc. All rights reserved.
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 
 </body>
 </html>
