@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- LinkedIn / Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Jithin George | Portfolio">
-  <meta property="og:description" content="AI / ML · Python · Software Engineering">
-  <meta property="og:url" content="https://codingwithjithin.github.io/">
-  <meta property="og:image" content="https://codingwithjithin.github.io/profile.jpg">
-  <meta property="og:image:secure_url" content="https://codingwithjithin.github.io/profile.jpg">
-  <meta property="og:image:type" content="image/jpeg">
-  <meta property="og:image:width" content="400">
-  <meta property="og:image:height" content="400">
-
   <meta charset="UTF-8">
-  <title>Jithin George</title>
+  <title>Jithin George | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="color-scheme" content="dark">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Jithin George | Portfolio">
+  <meta property="og:description" content="AI / ML · Python · DSA">
+  <meta property="og:image" content="background.jpg">
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
     * {
@@ -25,170 +21,153 @@
       font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
     }
 
-    html, body {
-      background: #0e0e10;
-      color: #f5f5f7;
-      overflow-x: hidden;
-    }
-
-    .background {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
+    body {
+      min-height: 100vh;
       background:
-        radial-gradient(600px 600px at 20% 25%, rgba(91,92,255,0.20), transparent 60%),
-        radial-gradient(500px 500px at 80% 70%, rgba(124,108,255,0.18), transparent 60%),
-        radial-gradient(400px 400px at 50% 90%, rgba(180,140,255,0.12), transparent 60%),
-        #0e0e10;
-      animation: backgroundMove 24s ease-in-out infinite alternate;
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url("background.jpg.jpeg") center / cover no-repeat fixed;
+      color: #fff;
     }
 
-    @keyframes backgroundMove {
-      0% {
-        background-position:
-          0% 0%,
-          100% 100%,
-          50% 100%;
-      }
-      100% {
-        background-position:
-          10% 15%,
-          90% 85%,
-          55% 90%;
-      }
+    .container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 60px;
     }
 
-    .background::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-      pointer-events: none;
+    .content {
+      max-width: 520px;
     }
 
-    .page {
-      max-width: 420px;
-      margin: auto;
-      padding: 64px 22px;
-      position: relative;
-      z-index: 1;
+    .content h1 {
+      font-size: 52px;
+      font-weight: 700;
+      letter-spacing: 2px;
     }
 
-    .hero {
-      text-align: center;
-      margin-bottom: 42px;
+    .content p {
+      margin-top: 10px;
+      font-size: 18px;
+      opacity: 0.9;
+      letter-spacing: 1px;
     }
 
-    .hero img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 1px solid rgba(255,255,255,0.15);
-      margin-bottom: 18px;
-    }
-
-    .hero h1 {
-      font-size: 30px;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-    }
-
-    .hero p {
-      margin-top: 8px;
-      font-size: 15px;
-      color: #a1a1a6;
-    }
-
-    .card {
-      background: rgba(30,30,34,0.65);
-      backdrop-filter: blur(18px);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 22px;
-      padding: 26px;
-    }
-
-    .links {
+    .buttons {
+      margin-left: auto;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 18px;
     }
 
     .btn {
+      width: 260px;
+      padding: 16px 18px;
+      border-radius: 14px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 15px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: #f5f5f7;
+      gap: 12px;
+      font-size: 16px;
+      font-weight: 600;
       text-decoration: none;
-      font-weight: 500;
-      transition: transform .25s ease, box-shadow .25s ease;
+      color: #fff;
+      backdrop-filter: blur(10px);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
     }
 
-    .footer {
-      margin-top: 28px;
-      text-align: center;
+    .resume {
+      background: linear-gradient(135deg, #1f3b6e, #274a8b);
+    }
+
+    .linkedin {
+      background: linear-gradient(135deg, #0077b5, #0a66c2);
+    }
+
+    .github {
+      background: linear-gradient(135deg, #1c1c1c, #333);
+    }
+
+    .instagram {
+      background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
       font-size: 12px;
-      color: #a1a1a6;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 40px 20px;
+      }
+
+      .buttons {
+        margin: 40px 0 0;
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .content h1 {
+        font-size: 38px;
+      }
     }
   </style>
-
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
 
-  <div class="background"></div>
+  <div class="container">
 
-  <div class="page">
-
-    <div class="hero">
-      <img src="profile.jpg" alt="Jithin George">
-      <h1>Jithin George</h1>
-      <p>AI/ML Engineer · DSA · Python</p>
+    <!-- LEFT TEXT -->
+    <div class="content">
+      <h1>JITHIN GEORGE</h1>
+      <p>AI / ML · PYTHON · DSA</p>
     </div>
 
-    <div class="card">
-      <div class="links">
+    <!-- RIGHT BUTTONS -->
+    <div class="buttons">
 
-        <a href="resume.pdf" class="btn" target="_blank">
-          <i class="fa-solid fa-download"></i>
-          Download Resume
-        </a>
+      <a href="resume.pdf" class="btn resume" target="_blank">
+        <i class="fa-solid fa-download"></i>
+        Download Resume
+      </a>
 
-        <a href="https://github.com/Codingwithjithin" class="btn" target="_blank">
-          <i class="fa-brands fa-github"></i>
-          GitHub
-        </a>
+      <a href="https://www.linkedin.com/in/jithingeorge/" class="btn linkedin" target="_blank">
+        <i class="fa-brands fa-linkedin"></i>
+        LinkedIn
+      </a>
 
-        <a href="https://www.linkedin.com/in/jithingeorge/" class="btn" target="_blank">
-          <i class="fa-brands fa-linkedin"></i>
-          LinkedIn
-        </a>
+      <a href="https://github.com/Codingwithjithin" class="btn github" target="_blank">
+        <i class="fa-brands fa-github"></i>
+        GitHub
+      </a>
 
-        <a href="https://www.instagram.com/conqueror._____?igsh=MTNmcnFmZHU1eHc2dQ==" class="btn" target="_blank">
-          <i class="fa-brands fa-instagram"></i>
-          Instagram
-        </a>
+      <a href="https://www.instagram.com/conqueror._____?igsh=MTNmcnFmZHU1eHc2dQ==" class="btn instagram" target="_blank">
+        <i class="fa-brands fa-instagram"></i>
+        Instagram
+      </a>
 
-      </div>
     </div>
-
-    <div class="footer">
-      Designed by Jithin George · © <span id="year"></span>
-    </div>
-
   </div>
+
+  <footer>
+    © <span id="year"></span> Jithin George
+  </footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
