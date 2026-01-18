@@ -19,51 +19,49 @@
     body {
       min-height: 100vh;
       background:
-        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
         url("background.jpg.jpeg") center / cover no-repeat fixed;
       color: #fff;
     }
 
-    .container {
-      min-height: 100vh;
-      display: flex;
-      padding: 50px 70px;
+    /* HEADER TEXT POSITION (EXACT LIKE IMAGE) */
+    .header {
+      position: absolute;
+      top: 60px;
+      left: 70px;
+      max-width: 600px;
     }
 
-    /* LEFT CONTENT */
-    .content {
-      max-width: 560px;
-      margin-top: -30px; /* moves content upward */
+    .header h1 {
+      font-size: 58px;
+      font-weight: 800;
+      letter-spacing: 3px;
     }
 
-    .content h1 {
-      font-size: 52px;
-      font-weight: 700;
-      letter-spacing: 2px;
-    }
-
-    .content .role {
-      margin-top: 6px;
+    .header .role {
+      margin-top: 10px;
       font-size: 18px;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       opacity: 0.9;
     }
 
     .about {
       margin-top: 26px;
       font-size: 15.5px;
-      line-height: 1.7;
-      color: #e0e0e0;
+      line-height: 1.75;
+      color: #e6e6e6;
       max-width: 520px;
     }
 
-    /* RIGHT BUTTONS */
+    /* BUTTON SECTION */
     .buttons {
-      margin-left: auto;
+      position: absolute;
+      right: 70px;
+      top: 50%;
+      transform: translateY(-50%);
       display: flex;
       flex-direction: column;
       gap: 18px;
-      align-self: center;
     }
 
     .btn {
@@ -113,14 +111,19 @@
 
     /* MOBILE */
     @media (max-width: 900px) {
-      .container {
-        flex-direction: column;
-        padding: 40px 20px;
+      .header {
+        position: relative;
+        top: auto;
+        left: auto;
+        padding: 40px 20px 0;
       }
 
       .buttons {
-        margin-top: 40px;
-        width: 100%;
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        margin: 40px 20px;
       }
 
       .btn {
@@ -128,8 +131,8 @@
         justify-content: center;
       }
 
-      .content h1 {
-        font-size: 38px;
+      .header h1 {
+        font-size: 40px;
       }
     }
   </style>
@@ -137,46 +140,43 @@
 
 <body>
 
-  <div class="container">
+  <!-- LEFT HEADER -->
+  <div class="header">
+    <h1>JITHIN GEORGE</h1>
+    <div class="role">AI / ML · PYTHON · DSA</div>
 
-    <!-- LEFT -->
-    <div class="content">
-      <h1>JITHIN GEORGE</h1>
-      <div class="role">AI / ML · PYTHON · DSA</div>
-
-      <div class="about">
-        I am a B.Tech graduate specializing in Artificial Intelligence and Machine Learning, with strong hands-on experience in Python, Machine Learning, Deep Learning, and Computer Vision.
-        <br><br>
-        I have worked on real-world projects and internships involving AI-based solutions, including a computer vision system for real-time Indian Sign Language translation. Through internships at SMEC Automation and CodeDesign Technologies, I gained practical exposure to Python-based development, automation, and applied machine learning concepts.
-        <br><br>
-        I am passionate about building intelligent systems, continuously learning new technologies, and applying AI/ML to solve real-world problems. I am currently seeking entry-level opportunities in AI/ML, software development, or data-driven roles.
-      </div>
+    <div class="about">
+      I am a B.Tech graduate specializing in Artificial Intelligence and Machine Learning, with strong hands-on experience in Python, Machine Learning, Deep Learning, and Computer Vision.
+      <br><br>
+      I have worked on real-world projects and internships involving AI-based solutions, including a computer vision system for real-time Indian Sign Language translation. Through internships at SMEC Automation and CodeDesign Technologies, I gained practical exposure to Python-based development, automation, and applied machine learning concepts.
+      <br><br>
+      I am passionate about building intelligent systems, continuously learning new technologies, and applying AI/ML to solve real-world problems. I am currently seeking entry-level opportunities in AI/ML, software development, or data-driven roles.
     </div>
+  </div>
 
-    <!-- RIGHT -->
-    <div class="buttons">
+  <!-- RIGHT BUTTONS -->
+  <div class="buttons">
 
-      <a href="resume.pdf" class="btn resume" target="_blank">
-        <i class="fa-solid fa-download"></i>
-        Download Resume
-      </a>
+    <a href="resume.pdf" class="btn resume" target="_blank">
+      <i class="fa-solid fa-download"></i>
+      Download Resume
+    </a>
 
-      <a href="https://www.linkedin.com/in/jithingeorge/" class="btn linkedin" target="_blank">
-        <i class="fa-brands fa-linkedin"></i>
-        LinkedIn
-      </a>
+    <a href="https://www.linkedin.com/in/jithingeorge/" class="btn linkedin" target="_blank">
+      <i class="fa-brands fa-linkedin"></i>
+      LinkedIn
+    </a>
 
-      <a href="https://github.com/Codingwithjithin" class="btn github" target="_blank">
-        <i class="fa-brands fa-github"></i>
-        GitHub
-      </a>
+    <a href="https://github.com/Codingwithjithin" class="btn github" target="_blank">
+      <i class="fa-brands fa-github"></i>
+      GitHub
+    </a>
 
-      <a href="https://www.instagram.com/conqueror._____?igsh=MTNmcnFmZHU1eHc2dQ==" class="btn instagram" target="_blank">
-        <i class="fa-brands fa-instagram"></i>
-        Instagram
-      </a>
+    <a href="https://www.instagram.com/conqueror._____?igsh=MTNmcnFmZHU1eHc2dQ==" class="btn instagram" target="_blank">
+      <i class="fa-brands fa-instagram"></i>
+      Instagram
+    </a>
 
-    </div>
   </div>
 
   <footer>
